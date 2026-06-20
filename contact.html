@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Get in touch with Acctrum. Request a proposal, schedule a consultation, or inquire about our IT services and solutions.">
+    <title>Contact Us | Acctrum - Get Started Today</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="Imgs/Acctrum Logo Final.png" alt="Acctrum" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html" class="active nav-cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero section contact-hero">
+        <div class="container">
+            <div class="hero-content" style="text-align: center; max-width: 1000px; margin: 0 auto;">
+                <h1 style="margin-bottom: 24px;">Let's Start a Conversation</h1>
+                <p class="hero-subheadline" style="margin: 0 auto 40px;">
+                    Ready to transform your business with cutting-edge technology solutions?
+                    We're here to help. Reach out and let's discuss your project.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section">
+        <div class="container">
+            <div class="form-container">
+                <div class="section-header" style="margin-bottom: 40px;">
+
+                    <h2 class="section-title">Tell Us About Your Project</h2>
+                    <p class="section-description">
+                        Fill out the form below and our team will get back to you within 24 hours.
+                    </p>
+                </div>
+
+                <!-- Hidden iframe for target -->
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                    onload="if(this.dataset.submitted){showSuccess();}"></iframe>
+
+                <form id="proposalForm" onsubmit="return handleSubmit(event)"
+                    action="https://docs.google.com/forms/d/e/1FAIpQLScQ64nEXr7dM-mqr-h13jwoZ2xNov_AE6YDLcuC-8vdgtC98w/formResponse"
+                    method="POST" target="hidden_iframe">
+                    <input type="hidden" name="fvv" value="1">
+                    <input type="hidden" name="pageHistory" value="0">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="entry.381671825" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="entry.2007337527" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="entry.1132426978" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="entry.1112589969" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="company">Company Name *</label>
+                            <input type="text" id="company" name="entry.365848177" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="designation">Designation and Role in Company</label>
+                            <input type="text" id="designation" name="entry.754373168" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="service">Service Interest *</label>
+                            <select id="service" name="entry.1941563790" required>
+                                <option value="">Select a service...</option>
+                                <option value="Strategic Consulting">Strategic Consulting</option>
+                                <option value="Product Solutions">Product Solutions</option>
+                                <option value="Talent Solutions">Talent Solutions</option>
+                                <option value="Cloud Services">Cloud Services</option>
+                                <option value="Custom Software Development">Custom Software Development</option>
+                                <option value="Managed IT">Managed IT</option>
+                                <option value="Staff Augmentation">Staff Augmentation</option>
+                                <option value="DevOps & Automation">DevOps & Automation</option>
+                                <option value="Data & Analytics">Data & Analytics</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="budget">Estimated Budget</label>
+                            <select id="budget" name="entry.1768139232">
+                                <option value="">Select budget range...</option>
+                                <option value="Under $50,000">Under $50,000</option>
+                                <option value="$50,000 - $100,000">$50,000 - $100,000</option>
+                                <option value="$100,000 - $250,000">$100,000 - $250,000</option>
+                                <option value="$250,000 - $500,000">$250,000 - $500,000</option>
+                                <option value="Over $500,000">Over $500,000</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="timeline">Desired Timeline</label>
+                            <select id="timeline" name="entry.574883228">
+                                <option value="">Select timeline...</option>
+                                <option value="Immediate (1-2 months)">Immediate (1-2 months)</option>
+                                <option value="Short-term (3-6 months)">Short-term (3-6 months)</option>
+                                <option value="Medium-term (6-12 months)">Medium-term (6-12 months)</option>
+                                <option value="Long-term (12+ months)">Long-term (12+ months)</option>
+                                <option value="Flexible">Flexible</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="requirements">Project Requirements *</label>
+                            <textarea id="requirements" name="entry.1416047150" required
+                                placeholder="Tell us about your project goals, technical requirements, challenges you're facing, and what success looks like for you..."></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="hear">How did you hear about us?</label>
+                            <select id="hear" name="entry.1039436020">
+                                <option value="">Select an option...</option>
+                                <option value="Search Engine">Search Engine</option>
+                                <option value="Referral">Referral</option>
+                                <option value="Social Media">Social Media</option>
+                                <option value="LinkedIn">LinkedIn</option>
+                                <option value="Event/Conference">Event/Conference</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="form-submit">Submit Proposal Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+
+                <h2 class="section-title">Other Ways to Reach Us</h2>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="glass-card" style="text-align: center;">
+                    <div class="card-image">
+                        <img src="Imgs/27.png" alt="Email Us">
+                    </div>
+                    <h3>Email Us</h3>
+                    <p style="margin-bottom: 12px;">For general inquiries and support</p>
+                    <a href="mailto:hello@acctrum.com"
+                        style="color: var(--primary-light); text-decoration: none; font-weight: 600;">hello@acctrum.com</a>
+                </div>
+
+                <div class="glass-card" style="text-align: center;">
+                    <div class="card-image">
+                        <img src="Imgs/28.png" alt="Call Us">
+                    </div>
+                    <h3>Call Us</h3>
+                    <p style="margin-bottom: 12px;">Monday - Friday, 9am - 6pm PST</p>
+                    <a href="tel:+1234567890"
+                        style="color: var(--primary-light); text-decoration: none; font-weight: 600;">+1 (234)
+                        567-8900</a>
+                </div>
+
+                <div class="glass-card" style="text-align: center;">
+                    <div class="card-image">
+                        <img src="Imgs/26.png" alt="Career Inquiries">
+                    </div>
+                    <h3>Career Inquiries</h3>
+                    <p style="margin-bottom: 12px;">Join our talented team</p>
+                    <a href="mailto:careers@acctrum.com"
+                        style="color: var(--primary-light); text-decoration: none; font-weight: 600;">careers@acctrum.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Locations 
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+
+                <h2 class="section-title">Global Presence</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="glass-card">
+                    <h3 style="margin-bottom: 12px;">🏢 San Francisco HQ</h3>
+                    <p style="font-size: 0.9375rem; line-height: 1.7;">
+                        123 Innovation Drive<br>
+                        San Francisco, CA 94105<br>
+                        United States
+                    </p>
+                </div>
+
+                <div class="glass-card">
+                    <h3 style="margin-bottom: 12px;">🏢 New York Office</h3>
+                    <p style="font-size: 0.9375rem; line-height: 1.7;">
+                        456 Tech Avenue<br>
+                        New York, NY 10001<br>
+                        United States
+                    </p>
+                </div>
+
+                <div class="glass-card">
+                    <h3 style="margin-bottom: 12px;">🏢 Austin Office</h3>
+                    <p style="font-size: 0.9375rem; line-height: 1.7;">
+                        789 Startup Boulevard<br>
+                        Austin, TX 78701<br>
+                        United States
+                    </p>
+                </div>
+
+                <div class="glass-card">
+                    <h3 style="margin-bottom: 12px;">🏢 London Office</h3>
+                    <p style="font-size: 0.9375rem; line-height: 1.7;">
+                        321 Digital Lane<br>
+                        London EC1A 1BB<br>
+                        United Kingdom
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-logo">Acctrum</div>
+                    <p>Architecting Solutions, Empowering Teams. Your strategic partner for end-to-end innovation and
+                        high-performance talent solutions.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="GitHub">💻</a>
+                        <a href="#" aria-label="Instagram">📸</a>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Resources</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h3 class="footer-heading">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Cloud Solutions</a></li>
+                        <li><a href="services.html">Custom Software</a></li>
+                        <li><a href="services.html">Managed IT</a></li>
+                        <li><a href="services.html">Staffing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h3 class="footer-heading">Get in Touch</h3>
+                    <ul class="footer-contact">
+                        <li><span>📍</span> Erode, Tamil Nadu</li>
+                        <li><span>📧</span> hello@acctrum.com</li>
+                        <li><span>📞</span> +91 9876543210</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+                <p>&copy; 2026 Acctrum. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#" style="margin-left: 20px;">Privacy Policy</a>
+                    <a href="#" style="margin-left: 20px;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

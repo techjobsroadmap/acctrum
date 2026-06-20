@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details | Acctrum Academy</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <style>
+        .details-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 40px;
+            margin-top: 100px;
+            padding-bottom: 80px;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: calc(100vh - 160px);
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .sidebar h3 {
+            margin-bottom: 20px;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .lesson-list {
+            list-style: none;
+        }
+
+        .lesson-item {
+            padding: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            margin-bottom: 10px;
+            border: 1px solid transparent;
+        }
+
+        .lesson-item:hover {
+            background: rgba(176, 51, 204, 0.05);
+            border-color: rgba(176, 51, 204, 0.1);
+        }
+
+        .lesson-item.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(94, 0, 102, 0.2);
+        }
+
+        .content-area {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            min-height: 600px;
+        }
+
+        .markdown-body h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+
+        .markdown-body h2 {
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            color: var(--primary);
+        }
+
+        .markdown-body p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        .markdown-body ul,
+        .markdown-body ol {
+            margin: 0 0 30px 25px;
+            color: var(--text-gray);
+        }
+
+        .markdown-body li {
+            margin-bottom: 10px;
+        }
+
+        .markdown-body code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .markdown-body pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 25px;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
+        .markdown-body pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        .markdown-body blockquote {
+            border-left: 5px solid var(--primary);
+            padding: 15px 25px;
+            background: rgba(176, 51, 204, 0.05);
+            margin: 30px 0;
+            font-style: italic;
+        }
+
+        @media (max-width: 1024px) {
+            .details-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="Imgs/Acctrum Logo Final.png" alt="Acctrum" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="details-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3 id="course-title">Curriculum</h3>
+                <ul class="lesson-list" id="lesson-list">
+                    <!-- Lessons will be populated here -->
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content-area">
+                <div class="markdown-body" id="lesson-content">
+                    <!-- Content will be rendered here -->
+                    <div style="text-align: center; padding: 100px 0;">
+                        <h2 style="color: var(--primary-light)">Loading Lesson Content...</h2>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="courses/playwright-course.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseId = urlParams.get('course') || 'playwright';
+
+            // For now we only have Playwright, but we could add logic to load different scripts
+            let metadata = playwrightCourseMetadata;
+            let content = playwrightCourseContent;
+
+            const lessonList = document.getElementById('lesson-list');
+            const contentArea = document.getElementById('lesson-content');
+
+            // Populate Lesson List
+            Object.keys(metadata).forEach(id => {
+                const li = document.createElement('li');
+                li.className = 'lesson-item';
+                li.innerHTML = `<strong>${metadata[id].title}</strong><br><small>${metadata[id].duration}</small>`;
+                li.dataset.id = id;
+                li.onclick = () => loadLesson(id);
+                lessonList.appendChild(li);
+            });
+
+            function loadLesson(id) {
+                // Update active state
+                document.querySelectorAll('.lesson-item').forEach(item => item.classList.remove('active'));
+                const activeItem = document.querySelector(`.lesson-item[data-id="${id}"]`);
+                if (activeItem) activeItem.classList.add('active');
+
+                // Render Markdown
+                contentArea.innerHTML = marked.parse(content[id]);
+
+                // Scroll to top of content
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Load first lesson by default
+            loadLesson(Object.keys(metadata)[0]);
+        });
+    </script>
+</body>
+
+</html>
